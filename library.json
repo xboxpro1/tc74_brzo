@@ -1,0 +1,20 @@
+{
+  "name": "TC74 I2C BRZO",
+  "version": "1.0.0",
+  "keywords": "esp8266, I2C, TC74",
+  "description": "ESP8266 library for the I2C controlled TC74 temperature sensor, uses the BRZO I2C library",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/xboxpro1/TC74_I2C_BRZO.git"
+  },
+  "authors":
+  [
+    {
+        "name": "Martin Stahl",
+        "email": "xboxpro1@gmail.com"
+    }
+  ],
+  "frameworks": "arduino",
+  "platforms": "espressif"
+}
