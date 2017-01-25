@@ -24,7 +24,9 @@
 #include "brzo_i2c.h"
 #include "tc74_i2c_brzo.h"
 
-uint8_t tc74_speed = 100;		//TC74 SCL frequency 100kHz
+uint8_t tc74_speed = 100;				//TC74 SCL frequency 100kHz
+uint8_t _command[] = {0x00, 0x01, 0x80};
+uint8_t _buffer[2];
 
 TC74_I2C_BRZO::TC74_I2C_BRZO(uint8_t TC74_Addr)
 {  
@@ -33,37 +35,39 @@ TC74_I2C_BRZO::TC74_I2C_BRZO(uint8_t TC74_Addr)
 
 uint8_t TC74_I2C_BRZO::powersave(void){
 	uint8_t	ecode;
+	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
-	brzo_i2c_write(0x01, 1, true);
-	brzo_i2c_write(0x80, 1, false);
+	brzo_i2c_write(_command[1], 1, false);
+	brzo_i2c_write(_command[2], 1, false);
 	ecode = brzo_i2c_end_transaction();   
 	return ecode;
 }
 
 uint8_t TC74_I2C_BRZO::nopowersave(void){
 	uint8_t	ecode;
+	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
-	brzo_i2c_write(0x01, 1, true);
-	brzo_i2c_write(0x00, 1, false);
+	brzo_i2c_write(_command[1], 1, false);
+	brzo_i2c_write(_command[0], 1, false);
 	ecode = brzo_i2c_end_transaction();
-	delay(250);						// Maximum ensured conversion time after Power-on Reset (POR to DATA_RDY) is 250 msec.
+	delay(250);		// Maximum ensured conversion time after Power-on Reset (POR to DATA_RDY) is 250 msec.
+	
 	return ecode;	
 }
 
 uint8_t TC74_I2C_BRZO::readtemp(int8_t *t){
 	uint8_t	ecode;
-	byte tdata;	
-	
+		
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
-	brzo_i2c_write(0x00, 1, true);
-	brzo_i2c_read(tdata, 1, false);
+	brzo_i2c_write(_command[0], 1, true);
+	brzo_i2c_read(_buffer, 1, false);
 	ecode = brzo_i2c_end_transaction();
 
-	if(tdata & 0x80){				// Negative temperatures have bit 8 set, and range from -1 to -65 deg Celcius , see datasheet page 8 table 4.4
-		*t = -1*((tdata ^ 0xFF )+1);		// Convert back from two's complement and multiply by -1 to make it negative again
+	if(_buffer[0] & 0x80){				// Negative temperatures have bit 8 set, and range from -1 to -65 deg Celcius , see datasheet page 8 table 4.4
+		*t = -1*((_buffer[0] ^ 0xFF )+1);		// Convert back from two's complement and multiply by -1 to make it negative again
 	}
 	else{
-		*t = tdata;	
+		*t = _buffer[0];	
 	}	
 	return ecode;
 }
