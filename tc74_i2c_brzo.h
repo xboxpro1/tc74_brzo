@@ -3,7 +3,7 @@
   This library uses the BRZO_I2C library for the ESP8266.
   
   Created Jan 2017
-  By Martin Stahl	https://github.com/xboxpro1/TC74_I2C_BRZO
+  By Martin Stahl	https://github.com/xboxpro1/tc74_i2c_brzo
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
