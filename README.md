@@ -8,6 +8,7 @@ This library uses the BRZO I2C library for the ESP8266.
 
 This library also supports the TC74 Standby mode.
 In this mode the A/D converter is halted and the temperature data registers are frozen.
+On power up the TC74 enters Standby Mode.
 In Standby mode the power consumption is 5 µA (in normal mode 200 μA)
 
 ###TC74 Info
