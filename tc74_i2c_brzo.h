@@ -44,9 +44,9 @@ class TC74_I2C_BRZO {
 public:
   TC74_I2C_BRZO(uint8_t TC74_Addr);
 
-  uint8_t readtemp(int8_t *t);
-  uint8_t powersave(void);
-  uint8_t nopowersave(void);
+  uint8_t temp(int8_t *t);
+  uint8_t standby(void);
+  uint8_t on(void);
   
 
 private:
