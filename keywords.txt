@@ -11,9 +11,9 @@ TC74_I2C_BRZO KEYWORD1
 ###########################################
 # Methods and Functions (KEYWORD2)
 ###########################################
-readtemp	KEYWORD2
-powersave	KEYWORD2
-nopowersave	KEYWORD2
+temp	KEYWORD2
+standby	KEYWORD2
+on	KEYWORD2
 ###########################################
 # Constants (LITERAL1)
 ###########################################
