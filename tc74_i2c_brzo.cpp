@@ -46,7 +46,7 @@ TC74_I2C_BRZO::TC74_I2C_BRZO(uint8_t TC74_Addr)
 	_Addr = TC74_Addr;
 }
 
-uint8_t TC74_I2C_BRZO::powersave(void){
+uint8_t TC74_I2C_BRZO::standby(void){
 	uint8_t	ecode;
 	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
@@ -56,7 +56,7 @@ uint8_t TC74_I2C_BRZO::powersave(void){
 	return ecode;
 }
 
-uint8_t TC74_I2C_BRZO::nopowersave(void){
+uint8_t TC74_I2C_BRZO::on(void){
 	uint8_t	ecode;
 	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
@@ -68,7 +68,7 @@ uint8_t TC74_I2C_BRZO::nopowersave(void){
 	return ecode;	
 }
 
-uint8_t TC74_I2C_BRZO::readtemp(int8_t *t){
+uint8_t TC74_I2C_BRZO::temp(int8_t *t){
 	uint8_t	ecode;
 		
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
