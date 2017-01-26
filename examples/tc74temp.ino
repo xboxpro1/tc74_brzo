@@ -25,7 +25,7 @@ void setup(){
    Serial.begin(115200);                        // Initialize the serial port
    delay(1000);
    Serial.print ("Set the TC74 Sensor in normal mode.... ");	
-   errorcode = tc74.nopowersave();              // Set the TC74 sensor in normal mode
+   errorcode = tc74.on();              // Set the TC74 sensor in normal mode, on Startup the TC74 enters Standby Mode.
    if(errorcode == 0) then {
      Serial.println ("OK");
      initok = true;
@@ -41,7 +41,7 @@ void setup(){
 
 void loop(){
     if(initok){
-      errorcode = tc74.readtemp(temperature);
+      errorcode = tc74.temp(temperature);
       if(errorcode == 0){
         Serial.print ("Temperature: ");
         Serial.print (temperature);
