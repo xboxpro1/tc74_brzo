@@ -31,15 +31,15 @@ In Standby mode the power consumption is 5 µA (in normal mode 200 μA)
 **TC74_I2C_BRZO tc74(Address)**
 Init the temperature sensor with the given address.
 
-**readtemp(int8_t)**
+**temp(int8_t)**
 Read the temperature as int8_t. Returns the brzo_i2c error code.
 Brzo_i2c error codes see [README](https://github.com/pasko-zh/brzo_i2c/blob/master/README.md)
 
-**powersave()**
+**standby()**
 Set the standby mode. In this mode the A/D converter is halted and the temperature data registers are frozen.
 Returns the brzo_i2c error code.
 
-**nopowersave()**
+**on()**
 Set the normal mode. Returns the brzo_i2c error code.
 
 
