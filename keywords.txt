@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 ###########################################
 
-TC74_I2C_BRZO KEYWORD1
+TC74_BRZO KEYWORD1
 
 ###########################################
 # Methods and Functions (KEYWORD2)
