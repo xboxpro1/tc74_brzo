@@ -4,7 +4,7 @@ Example for Microchip TC74 temperature sensor using the TC74_I2C_BRZO library
 The sketch reads the TC74 sensor via BRZO_I2C and outputs the data to the serial port
 
 Created Jan 2017
-By Martin S		https://github.com/xboxpro1/TC74_I2C_BRZO
+By Martin S		https://github.com/xboxpro1/tc74_i2c_brzo
 */
 
 #include <Arduino.h>	// need for PlatformIO
@@ -12,7 +12,7 @@ By Martin S		https://github.com/xboxpro1/TC74_I2C_BRZO
 
 #define I2CSDA      4                           //brzo SDA Pin
 #define I2CSCL      5                           //brzo SCL Pin
-#define SCLSTRECH   0                           //brzo SCL Stretch timeout
+#define SCLSTRECH   5000                        //brzo SCL Stretch timeout
 
 TC74_I2C_BRZO tc74(0x4D);                       // set the TC74 address to 0x4D (default) see tc74_i2c_brzo.h
 
