@@ -1,9 +1,9 @@
 /*
-  tc74_i2c_brzo.h - ESP8266 I2C library for TC74 temperature sensor.  
-  This library uses the BRZO_I2C library for the ESP8266.
+  tc74_brzo.h - ESP8266 I2C library for TC74 temperature sensor.  
+  This library uses the BRZO I2C library for the ESP8266.
   
   Created Jan 2017
-  By Martin Stahl	https://github.com/xboxpro1/tc74_i2c_brzo
+  By Martin Stahl	https://github.com/xboxpro1/tc74_brzo
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -33,16 +33,16 @@
   TC74 SCL frequency 100kHz
 */
 
-#ifndef tc74_i2c_brzo_h
-#define tc74_i2c_brzo_h
+#ifndef tc74_brzo_h
+#define tc74_brzo_h
 
 #include <stdint.h>
 #include "brzo_i2c.h"
 
-class TC74_I2C_BRZO {
+class TC74_BRZO {
 	
 public:
-  TC74_I2C_BRZO(uint8_t TC74_Addr);
+  TC74_BRZO(uint8_t TC74_Addr);
 
   uint8_t temp(int8_t *t);
   uint8_t standby(void);
