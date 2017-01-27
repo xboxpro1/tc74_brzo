@@ -1,4 +1,4 @@
-# TC74 I2C BRZO
+# TC74 BRZO
 
 ESP8266 library for the I2C controlled TC74 temperature sensor.
 
@@ -29,7 +29,7 @@ In Standby mode the power consumption is 5 µA (in normal mode 200 μA)
   - A7	0x4F
   
 ###Driver API
-**TC74_I2C_BRZO tc74(Address)**
+**TC74_BRZO tc74(address)**
 Init the temperature sensor with the given address.
 
 **temp(int8_t)**
