@@ -1,9 +1,9 @@
 /*
-  tc74_i2c_brzo.ccp - ESP8266 I2C library for TC74 temperature sensor. 
-  This library uses the BRZO_I2C library for the ESP8266.
+  tc74_brzo.ccp - ESP8266 I2C library for TC74 temperature sensor. 
+  This library uses the BRZO I2C library for the ESP8266.
   
   Created Jan 2017
-  By Martin Stahl	https://github.com/xboxpro1/tc74_i2c_brzo
+  By Martin Stahl	https://github.com/xboxpro1/tc74_brzo
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU General Public
@@ -35,18 +35,18 @@
 
 #include <stdint.h>
 #include "brzo_i2c.h"
-#include "tc74_i2c_brzo.h"
+#include "tc74_brzo.h"
 
 uint8_t tc74_speed = 100;				//TC74 SCL frequency 100kHz
 uint8_t _command[] = {0x00, 0x01, 0x80};
 uint8_t _buffer[2];
 
-TC74_I2C_BRZO::TC74_I2C_BRZO(uint8_t TC74_Addr)
+TC74_BRZO::TC74_BRZO(uint8_t TC74_Addr)
 {  
 	_Addr = TC74_Addr;
 }
 
-uint8_t TC74_I2C_BRZO::standby(void){
+uint8_t TC74_BRZO::standby(void){
 	uint8_t	ecode;
 	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
@@ -56,7 +56,7 @@ uint8_t TC74_I2C_BRZO::standby(void){
 	return ecode;
 }
 
-uint8_t TC74_I2C_BRZO::on(void){
+uint8_t TC74_BRZO::on(void){
 	uint8_t	ecode;
 	
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
@@ -68,7 +68,7 @@ uint8_t TC74_I2C_BRZO::on(void){
 	return ecode;	
 }
 
-uint8_t TC74_I2C_BRZO::temp(int8_t *t){
+uint8_t TC74_BRZO::temp(int8_t *t){
 	uint8_t	ecode;
 		
 	brzo_i2c_start_transaction(_Addr, tc74_speed);
