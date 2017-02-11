@@ -26,7 +26,7 @@ void setup(){
    delay(1000);
    Serial.print ("Set the TC74 Sensor in normal mode.... ");	
    errorcode = tc74.on();              // Set the TC74 sensor in normal mode, on Startup the TC74 enters Standby Mode.
-   if(errorcode == 0) then {
+   if(errorcode == 0){
      Serial.println ("OK");
      initok = true;
    }
