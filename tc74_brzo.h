@@ -44,7 +44,7 @@ class TC74_BRZO {
 public:
   TC74_BRZO(uint8_t TC74_Addr);
 
-  uint8_t temp(int8_t *t);
+  uint8_t temp(int8_t &t);
   uint8_t standby(void);
   uint8_t on(void);
   
